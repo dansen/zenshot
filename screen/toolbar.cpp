@@ -46,7 +46,7 @@ ToolBar::ToolBar(Workspace *workspace)
 
     createChild();
 
-    L_WARN("{0}, {1}", __FUNCTION__, __LINE__);
+    //L_WARN("{0}, {1}", __FUNCTION__, __LINE__);
 }
 
 ToolBar::~ToolBar()

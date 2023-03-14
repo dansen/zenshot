@@ -289,7 +289,7 @@ void StarterUI::OnShotDone(Starter* starter)
 		L_DEBUG("send pkg to {0}, data: {1}, size: {2}", fd->objectName().toInt(), pkg.toInt(), pkg.size())
 	}
 
-	L_TRACE("!!!!!!!!!!!!! m_Starer size = {0}", m_Starer.size());
+    //L_TRACE("!!!!!!!!!!!!! m_Starer size = {0}", m_Starer.size());
 	L_DEBUG("@@@@@@@@@@@@@@@@@@@@@@@@ GAME END @@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 }
 

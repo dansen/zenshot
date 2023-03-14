@@ -31,7 +31,7 @@ QRect WindowGetter::winGeometry(QScreen *screen,QWidget *host)
 	::EnableWindow((HWND)host->winId(), FALSE);
 
 	QRect result = screen->geometry();
-	L_INFO("!!! [[[[[[[ result @ {0}, {1}, {2}, {3} ]]]]]]]", result.left(), result.top(), result.right(), result.bottom());
+    //L_INFO("!!! [[[[[[[ result @ {0}, {1}, {2}, {3} ]]]]]]]", result.left(), result.top(), result.right(), result.bottom());
 	QRect limit(result.x(), result.y(), result.width(), result.height());
 
 	HWND hwnd;
@@ -44,7 +44,7 @@ QRect WindowGetter::winGeometry(QScreen *screen,QWidget *host)
 	if (hwnd != NULL) {
 		RECT temp_window;
 		::GetWindowRect(hwnd, &temp_window);
-		L_INFO("]]]]]]] temp_window @ {0}, {1}, {2}, {3} [[[[[[[", temp_window.left, temp_window.top, temp_window.right, temp_window.bottom);
+        //L_INFO("]]]]]]] temp_window @ {0}, {1}, {2}, {3} [[[[[[[", temp_window.left, temp_window.top, temp_window.right, temp_window.bottom);
 		result.setRect(temp_window.left, temp_window.top,
 			temp_window.right - temp_window.left,
 			temp_window.bottom - temp_window.top);
@@ -53,7 +53,7 @@ QRect WindowGetter::winGeometry(QScreen *screen,QWidget *host)
 	::EnableWindow((HWND)host->winId(), TRUE);
 
 	result = result.intersected(limit);
-	L_INFO("### [[[[[[[ result @ {0}, {1}, {2}, {3} ]]]]]]]", result.left(), result.top(), result.right(), result.bottom());
+    //L_INFO("### [[[[[[[ result @ {0}, {1}, {2}, {3} ]]]]]]]", result.left(), result.top(), result.right(), result.bottom());
 	return result;
 }
 

@@ -62,7 +62,7 @@ void Starter::init(QWidget* parent)
     for (int index = 0; index < screanList.size(); index++)
     {
         auto list = screanList[index];
-        L_DEBUG("list size = {0}", list.size());
+        //L_DEBUG("list size = {0}", list.size());
         std::shared_ptr<ScreenList> alone(new ScreenList(list));
         Widget* w = nullptr;
         if (m_unused_widgets->empty())
@@ -79,13 +79,13 @@ void Starter::init(QWidget* parent)
             m_unused_widgets->pop_back();
         }
 
-        L_DEBUG("!!!!!!!!!!!! x = {0}, y = {1}, w = {2}, h = {3} && screen @ {4}", w->pos().x(), w->pos().y(), w->size().width(), w->size().height(), index);
+       //L_DEBUG("!!!!!!!!!!!! x = {0}, y = {1}, w = {2}, h = {3} && screen @ {4}", w->pos().x(), w->pos().y(), w->size().width(), w->size().height(), index);
 
         w->start(alone, index);
         m_widgets->append(w);
     }
 
-    L_DEBUG("m_unused_widgets size: {0}, m_widgets size: {1}", m_unused_widgets->size(), m_widgets->size());
+    //L_DEBUG("m_unused_widgets size: {0}, m_widgets size: {1}", m_unused_widgets->size(), m_widgets->size());
 }
 
 void Starter::cleanup()

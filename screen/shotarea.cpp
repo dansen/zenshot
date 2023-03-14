@@ -31,6 +31,7 @@
 #include <QPainterPath>
 #include <QBrush>
 #include <QtMath>
+#include <QClipboard>
 
 ShotArea::ShotArea(Workspace *workspace):RectShape(workspace),m_areaConfirmed(false), m_nowScreenIndex(0)
 {
@@ -225,7 +226,14 @@ void ShotArea::drawMagnifier(QPainter &painter)
 
     QColor mouseColor = bgImg.pixel(mousePoint.x(),mousePoint.y());
 
-    QString posStr = "POS: (" + QString::number(mousePoint.x()) + "," + QString::number(mousePoint.y()) + ")";
+    QString posStr;
+    posStr.sprintf("POS: (%d, %d, %d, %d)", mousePoint.x(), mousePoint.y(), areaBoundary().width(), areaBoundary().height());
+    // copy area to clipboard
+    QString copyStr;
+    copyStr.sprintf("%d, %d, %d, %d", mousePoint.x(), mousePoint.y(), areaBoundary().width(), areaBoundary().height());
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    clipboard->setText(copyStr);
+
     QString rgbStr = "RGB: (" + QString::number(mouseColor.red()) + "," + QString::number(mouseColor.green()) + "," + QString::number(mouseColor.blue()) + ")";
 
     L_TRACE("{0}", posStr.toStdString().c_str());

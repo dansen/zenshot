@@ -66,7 +66,7 @@ void Widget::cleanup()
     L_FUNCTION();
     hide();
 
-    L_TRACE("is visable = {0} && w: {1}, h: {2} @ {3}", this->isVisible(), size().width(), size().height(), __FUNCTION__);
+    //L_TRACE("is visable = {0} && w: {1}, h: {2} @ {3}", this->isVisible(), size().width(), size().height(), __FUNCTION__);
 
     m_status = "unknown";
     m_workspace->cleanup();
@@ -97,9 +97,9 @@ void Widget::showEvent(QShowEvent* event)
     setMouseTracking(true);
 
     QWidget::showEvent(event);
-    L_WARN("is visable = {0} && x: {1}, y: {2}, w: {3}, h: {4} @ {5} --- {6}"
-        , this->isVisible(), pos().x(), pos().y(), size().width(), size().height(), m_status.toStdString().c_str()
-        , __FUNCTION__);
+//    L_WARN("is visable = {0} && x: {1}, y: {2}, w: {3}, h: {4} @ {5} --- {6}"
+//        , this->isVisible(), pos().x(), pos().y(), size().width(), size().height(), m_status.toStdString().c_str()
+//        , __FUNCTION__);
 }
 
 void Widget::hideEvent(QHideEvent* event)
@@ -110,9 +110,9 @@ void Widget::hideEvent(QHideEvent* event)
 
     QWidget::hideEvent(event);
 
-    L_INFO("is visable = {0} && x: {1}, y: {2}, w: {3}, h: {4} @ {5} --- {6}"
-        , this->isVisible(), pos().x(), pos().y(), size().width(), size().height(), m_status.toStdString().c_str()
-        , __FUNCTION__);
+//    L_INFO("is visable = {0} && x: {1}, y: {2}, w: {3}, h: {4} @ {5} --- {6}"
+//        , this->isVisible(), pos().x(), pos().y(), size().width(), size().height(), m_status.toStdString().c_str()
+//        , __FUNCTION__);
 }
 
 void Widget::closeEvent(QCloseEvent* event)

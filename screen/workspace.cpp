@@ -373,7 +373,7 @@ void Workspace::draw(QPainter &painter)
 
     if(m_firstRender == false && GParams::instance()->mark() == "yes")
     {
-        L_DEBUG("create tool bar");
+        //L_DEBUG("create tool bar");
 
         m_firstRender = true;
 
