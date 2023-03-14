@@ -20,6 +20,7 @@
 #include "screen/workspace.h"
 #include "core/utils.h"
 
+#include <QPainterPath>
 #include <QtMath>
 #include <QRegion>
 

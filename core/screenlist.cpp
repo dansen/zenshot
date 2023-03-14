@@ -19,7 +19,7 @@
 #include "screenlist.h"
 
 #include "spdlogwrapper.hpp"
-
+#include <QPainterPath>
 #include <QCursor>
 #include <QPainter>
 #include <QRect>
