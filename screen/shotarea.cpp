@@ -211,6 +211,22 @@ QVector<Handle*> ShotArea::handles()
     return results;
 }
 
+static void SetClip(QString data){
+    //put your text in source
+    if(OpenClipboard(0))
+    {
+        HGLOBAL clipbuffer;
+        char * buffer;
+        EmptyClipboard();
+        clipbuffer = GlobalAlloc(GMEM_DDESHARE, data.length()+1);
+        buffer = (char*)GlobalLock(clipbuffer);
+        strcpy(buffer, LPCSTR(data.toUtf8().data()));
+        GlobalUnlock(clipbuffer);
+        SetClipboardData(CF_TEXT,clipbuffer);
+        CloseClipboard();
+    }
+}
+
 void ShotArea::drawMagnifier(QPainter &painter)
 {
     L_FUNCTION();
@@ -231,8 +247,9 @@ void ShotArea::drawMagnifier(QPainter &painter)
     // copy area to clipboard
     QString copyStr;
     copyStr.sprintf("%d, %d, %d, %d", mousePoint.x(), mousePoint.y(), areaBoundary().width(), areaBoundary().height());
-    QClipboard *clipboard = QGuiApplication::clipboard();
-    clipboard->setText(copyStr);
+    //QClipboard *clipboard = QGuiApplication::clipboard();
+    SetClip(copyStr);
+    //clipboard->setText(copyStr);
 
     QString rgbStr = "RGB: (" + QString::number(mouseColor.red()) + "," + QString::number(mouseColor.green()) + "," + QString::number(mouseColor.blue()) + ")";
 

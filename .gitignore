@@ -1,4 +1,5 @@
 /bin
+/zenshot
 zenshot.pro.user*
 
 # vscode workspace file
@@ -17,3 +18,4 @@ setting.xml
 msvc_make.bat
 build
 build.sh
+zenshot.zip
