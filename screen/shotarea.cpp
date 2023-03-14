@@ -32,6 +32,7 @@
 #include <QBrush>
 #include <QtMath>
 #include <QClipboard>
+#include <QThread>
 
 ShotArea::ShotArea(Workspace *workspace):RectShape(workspace),m_areaConfirmed(false), m_nowScreenIndex(0)
 {
@@ -247,9 +248,7 @@ void ShotArea::drawMagnifier(QPainter &painter)
     // copy area to clipboard
     QString copyStr;
     copyStr.sprintf("%d, %d, %d, %d", mousePoint.x(), mousePoint.y(), areaBoundary().width(), areaBoundary().height());
-    //QClipboard *clipboard = QGuiApplication::clipboard();
     SetClip(copyStr);
-    //clipboard->setText(copyStr);
 
     QString rgbStr = "RGB: (" + QString::number(mouseColor.red()) + "," + QString::number(mouseColor.green()) + "," + QString::number(mouseColor.blue()) + ")";
 
